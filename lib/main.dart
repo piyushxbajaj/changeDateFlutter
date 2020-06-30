@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/painting.dart';
+//import 'package:flutter/painting.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,10 +15,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         selectedRowColor: Colors.yellow,
         unselectedWidgetColor: Colors.yellow,
-        colorScheme: ColorScheme.dark(),
+//        colorScheme: ColorScheme.dark(),
         buttonColor: Colors.yellow,
-        brightness: Brightness.dark,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+//        brightness: Brightness.dark,
+//        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Home(),
     );
@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//      backgroundColor: Colors.grey,
+      backgroundColor: Colors.black,
       body: Column(
         children: <Widget>[
           Container(
@@ -47,28 +47,35 @@ class _HomeState extends State<Home> {
             ),
           ),
           SizedBox(
-            height: 150,
+            height: 100,
           ),
           Text(
             'Date of Birth',
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 20, color: Colors.white),
           ),
           SizedBox(
-            height: 50,
+            height: 60,
           ),
           SizedBox(
-            height: 80,
-            child: CupertinoDatePicker(
+            height: 100,
+            child: CupertinoTheme(
+              data: CupertinoThemeData(
+                textTheme: CupertinoTextThemeData(
+                  pickerTextStyle: TextStyle(color: Colors.blue),
+                ),
+              ),
+              child: CupertinoDatePicker(
 //          backgroundColor: Colors.white,
-              initialDateTime: _dateTime,
-              mode: CupertinoDatePickerMode.date,
+                initialDateTime: _dateTime,
+                mode: CupertinoDatePickerMode.date,
 
-              onDateTimeChanged: (dateTime) {
-                print(dateTime);
-                setState(() {
-                  _dateTime = dateTime;
-                });
-              },
+                onDateTimeChanged: (dateTime) {
+                  print(dateTime);
+                  setState(() {
+                    _dateTime = dateTime;
+                  });
+                },
+              ),
             ),
           ),
 //          Card(
@@ -103,7 +110,7 @@ class _HomeState extends State<Home> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Text('<   Hello'),
+                        child: Text('<   Back'),
                       ),
                     ),
                     SizedBox(
@@ -115,7 +122,7 @@ class _HomeState extends State<Home> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Text('Hello   >'),
+                        child: Text('Next   >'),
                       ),
                     ),
                   ],
