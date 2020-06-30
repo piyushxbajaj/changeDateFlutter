@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/painting.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,11 +15,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         selectedRowColor: Colors.yellow,
         unselectedWidgetColor: Colors.yellow,
-//        colorScheme: ColorScheme.dark(),
+        colorScheme: ColorScheme.dark(),
         buttonColor: Colors.yellow,
-
         brightness: Brightness.dark,
-//        visualDensity: VisualDensity.adaptivePlatformDensity,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Home(),
     );
@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-//      backgroundColor: Colors.black,
+//      backgroundColor: Colors.grey,
       body: Column(
         children: <Widget>[
           Container(
@@ -47,17 +47,17 @@ class _HomeState extends State<Home> {
             ),
           ),
           SizedBox(
-            height: 100,
+            height: 150,
           ),
           Text(
             'Date of Birth',
             style: TextStyle(fontSize: 20),
           ),
           SizedBox(
-            height: 100,
+            height: 50,
           ),
           SizedBox(
-            height: 200,
+            height: 80,
             child: CupertinoDatePicker(
 //          backgroundColor: Colors.white,
               initialDateTime: _dateTime,
@@ -71,6 +71,58 @@ class _HomeState extends State<Home> {
               },
             ),
           ),
+//          Card(
+//            margin: EdgeInsets.all(20.0),
+//            shape:
+//                RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+//            child: Text('Hello'),
+//          ),
+          Expanded(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                decoration: BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20)),
+                ),
+                height: 150,
+//                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    SizedBox(
+                      width: 100,
+                      child: OutlineButton(
+                        highlightColor: Colors.red,
+                        splashColor: Colors.white,
+                        disabledBorderColor: Colors.black,
+                        disabledTextColor: Colors.teal,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text('<   Hello'),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 100,
+                      child: FlatButton(
+                        highlightColor: Colors.red,
+                        disabledColor: Colors.black,
+                        disabledTextColor: Colors.teal,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Text('Hello   >'),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
